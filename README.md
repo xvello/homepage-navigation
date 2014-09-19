@@ -3,10 +3,11 @@ Seamless navigation bar to switch between self-hosted services
 
 I self-host a lot of services on my server : Roundcube, ownCloud, Tiny Tiny RSS, Munin, phpMyAdmin... This static webpage allows to browse from one to another in a seamless way.
 
-![Screenshot](https://github.com/xvello/homepage-navigation/raw/master/screenshot.png)
+![Screenshot](https://github.com/xvello/homepage-navigation/raw/master/screenshot.gif)
 
 ##How does it work?##
-The applications are embedded in a iframe 
+The applications are embedded in a iframe while the navigation bar stays from click to click.
+Some javascript improves the experience (synchronising title and favicon, changing the URL hash, ...) but is completely optional.
 
 ##Requirements##
 - All the services must be hosted on the same domain for full functionnality
