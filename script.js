@@ -81,7 +81,7 @@ jQuery(document).ready(function () {
   }
   
   // Menu mouseover scroll if height > window
-  jQuery('#nav').mousemove(function(e){
+  jQuery('html.vn #nav').mousemove(function(e){
 	var h = $(this).height()+13;
 	var offset = $(this).offset();
 	var position = (e.pageY-offset.top)/$(this).height();
@@ -95,5 +95,5 @@ jQuery(document).ready(function () {
 	{
 		$(this).stop();
 	}
-});
+  });
 });

@@ -9,26 +9,39 @@
 }
       
 html, body { 
-  margin: 0; 
+  margin: 0;
   padding: 0; 
   height: 100%; 
 }
+
 iframe {
-    position: absolute;
-    top: 0; bottom: 0; left: 0; width: 100%; height: 100%;
-    border: none; padding-left: 64px;
-    box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+  position: absolute;
+  top: 0; bottom: 0; left: 0; width: 100%; height: 100%;
+  border: none;
+  box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+html.vn iframe {
+  padding-left: 64px;
+}
+html.hn iframe {
+  padding-top: 64px;
 }
 
 #loading {
   display: none;
   position: fixed;
-  left: 64px;
-  top: 0;
   width: 100%;
   height: 100%;
   background: #eee;
   z-index: 1100;
+}
+html.vn #loading {
+  left: 64px;
+  top: 0;
+}
+html.hn #loading {
+  top: 64px;
+  left: 0;
 }
 
 .icon {
@@ -50,22 +63,24 @@ iframe {
   display: block;
   left: 0;
   top: 0;
-  width: 64px;
-  height: 100%;
   position: fixed;
   overflow: hidden;
   z-index: 1111;
   background: #f7f7f7;
-  border-right: 1px solid #ddd;
   transition: all 300ms ease-in-out;
 }
-
-#nav:hover {
-  transform: translate(0, 0);  
+html.vn #nav {
+  width: 64px;
+  height: 100%;
+  border-right: 1px solid #ddd;
+}
+html.hn #nav {
+  height: 64px;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
 }
 
 #nav a {
-  display: block;
   width: 64px;
   height: 64px;
   text-align: center;
@@ -75,29 +90,50 @@ iframe {
   font-size: 32px;
   text-decoration: none;
   color: #999;
-  border-bottom: 1px solid #ddd;
   transition: all 300ms ease-in-out;
+}
+html.vn #nav a {
+  display: block;
+  border-bottom: 1px solid #ddd;  
+}
+html.hn #nav a {
+  float: left;
+  border-right: 1px solid #ddd;
+}
+
+html.vn #nav span.spacer {
+  height: 24px;
+  width: 64px;
+  display: block;
+}
+html.hn #nav span.spacer {
+  height: 64px;
+  width: 32px;
+  float: left;
 }
 
 #nav a:hover {
-    background: #47a3da;
-    color: #fff;
-	font-size: 42px;
+  background: #47a3da;
+  color: #fff;
+  font-size: 42px;
 }
  
 #nav a.active {
-    background: #fff;
-    color: #47a3da;
+  background: #fff;
+  color: #47a3da;
 }
 
 @media (max-width: 700px) {
-  iframe {
+  html.vn iframe {
     padding-left: 32px;
   }
-  #nav {
+  html.vn #nav {
     transform: translate(-50%, 0);  
   }
-  #loading {
+  html.vn #nav:hover {
+    transform: translate(0, 0);  
+  }
+  html.vn #loading {
     left: 32px;
   }
 }
