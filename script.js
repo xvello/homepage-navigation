@@ -72,7 +72,11 @@ function parseconf(conf) {
     }
 
     // Load start page
-    parent.iframe.location.href = conf.startpage;
+    if (conf.startpage) {
+        parent.iframe.location.href = conf.startpage;
+    } else {
+        $("#loading").fadeOut("slow");
+    }
 
     // Load links
     var a_counter = 1;
