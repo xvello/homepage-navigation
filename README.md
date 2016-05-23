@@ -11,11 +11,19 @@ Some javascript improves the experience (synchronising title and favicon, changi
 
 ##Requirements##
 - All the services must be hosted on the same domain for full functionnality
-- Some applications (ownCloud, phpMyAdmin...) have cross-site scripting protections, you have to remove them
+- Some applications (ownCloud, phpMyAdmin...) have cross-site scripting protections, you have to disable it
 
 ##Configuration##
-- Just modify index.htm to change the links you want to see. Icons are Fontawesome, look at the [cheatsheet](http://fortawesome.github.io/Font-Awesome/cheatsheet/) to find the unicode codes.
-- Default start page is [duckduckgo](https://www.duckduckgo.com), you can change it by modifying the src attribe on the iframe element.
+The configuration is stored in the config.json file. You can use config.json.sample as a starting point.
+
+* "horizontal" : true for a horizontal navbar, false for a vertical one (default)
+* "startpage" : default URL to load (absolute or relative)
+* "links" : array of navbar elements :
+  * empty objects will add a spacer
+  * valid links must have these properties :
+    * "url" : URL (absolute or relative) to load
+    * "icon" : icon string, from http://fontawesome.io/cheatsheet/
+    * "title" (optional) : tooltip
 
 ##Tips##
 - If you bookmark the page after loading a link, it will always load this link (using the HTML anchor in the URL).
