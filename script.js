@@ -1,14 +1,20 @@
 jQuery(document).ready(function () {
   // Save original favicon
   var orig_favicon = $('#favicon').clone();
+  
+  // Load links from config.json
+  $.getJSON('config.json', function(conf) {
+    parent.iframe.location.href = conf.startpage;
+    $('#nav').html('<p> Name: ' + conf.startpage + '</p>');
+  });
 
   // Modify all links to keep menu if opened in new tab
-  var a_counter = 1;
+  /*var a_counter = 1;
   $('#nav').children('a').each(function () {
     $(this).attr('to', $(this).attr('href'));
 	$(this).attr('counter', a_counter);
 	$(this).attr('href', '#'+a_counter++);
-  });
+  });*/
 
   // When link is clicked, load in iframe and change URL hash
   jQuery('#nav a').click(function(event) {
