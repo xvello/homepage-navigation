@@ -1,3 +1,5 @@
+
+
 jQuery(document).ready(function () {
   // Save original favicon
   var orig_favicon = $('#favicon').clone();
@@ -11,7 +13,21 @@ jQuery(document).ready(function () {
       $("html").addClass("vn");
     }
     parent.iframe.location.href = conf.startpage;
-    $('#nav').html('<p> Name: ' + conf.startpage + '</p>');
+    
+    var a_counter = 1;
+    
+    $.each(conf.contents, function(key, item) {
+      if (item.url && item.icon) {
+        var link = $("<a>" + item.icon + "</a>")
+          .attr('counter', a_counter)
+          .attr('href', "#" + a_counter++)
+          .attr('to', item.url)
+          .attr('title', item.title);
+        $("#nav").append(link);
+      } else {
+        $("#nav").append('<span class="spacer"></span>');
+      }
+    });
   });
 
   // Modify all links to keep menu if opened in new tab
