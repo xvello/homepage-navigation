@@ -1,0 +1,15 @@
+{
+  "horizontal": false,
+  "startpage": "https://duckduckgo.com",
+  "links": [
+    { "title": "E-mail", "icon": "&#xf003;", "url": "/mail" },
+    { "title": "RSS Feeds", "icon": "&#xf09e;", "url": "/rss" },
+    {},
+    { "title": "ownCloud Tasks", "icon": "&#xf046;", "url": "/owncloud/index.php/apps/tasks/" },
+    { "title": "ownCloud Calendar", "icon": "&#xf073;", "url": "/owncloud/index.php/apps/calendar/" },
+    { "title": "ownCloud Contacts", "icon": "&#xf0c0;", "url": "/owncloud/index.php/apps/contacts/" },
+    {},
+    { "title": "Munin", "icon": "&#xf201;", "url": "/munin/" },
+    { "title": "PHPMyAdmin", "icon": "&#xf1c0;", "url": "/phpmyadmin" }
+  ]
+}
