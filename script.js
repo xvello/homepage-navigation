@@ -1,10 +1,8 @@
-
-
 jQuery(document).ready(function () {
   // Save original favicon
   var orig_favicon = $('#favicon').clone();
   
-  // Load links from config.json
+  // Load config.json
   $.getJSON('config.json', function(conf) {
     // Set navbar orientation
     if (conf.horizontal) {
@@ -12,11 +10,13 @@ jQuery(document).ready(function () {
     } else {
       $("html").addClass("vn");
     }
+    
+    // Load start page
     parent.iframe.location.href = conf.startpage;
     
+    // Load links
     var a_counter = 1;
-    
-    $.each(conf.contents, function(key, item) {
+    $.each(conf.links, function(key, item) {
       if (item.url && item.icon) {
         var link = $("<a>" + item.icon + "</a>")
           .attr('counter', a_counter)
