@@ -4,6 +4,12 @@ jQuery(document).ready(function () {
   
   // Load links from config.json
   $.getJSON('config.json', function(conf) {
+    // Set navbar orientation
+    if (conf.horizontal) {
+      $("html").addClass("hn");
+    } else {
+      $("html").addClass("vn");
+    }
     parent.iframe.location.href = conf.startpage;
     $('#nav').html('<p> Name: ' + conf.startpage + '</p>');
   });
