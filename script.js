@@ -1,4 +1,15 @@
+function loadlink(link, event) {
+  // When link is clicked, load in iframe and change URL hash
+  event.preventDefault();
+  $("#loading").fadeIn("slow");
+  window.location.hash = '#'+ link.attr('counter');
+  parent.iframe.location.href = link.attr('to');
+  jQuery('#nav a.active').removeClass('active');
+  link.addClass('active');
+}
+
 jQuery(document).ready(function () {
+  
   // Save original favicon
   var orig_favicon = $('#favicon').clone();
   
@@ -22,7 +33,8 @@ jQuery(document).ready(function () {
           .attr('counter', a_counter)
           .attr('href', "#" + a_counter++)
           .attr('to', item.url)
-          .attr('title', item.title);
+          .attr('title', item.title)
+          .click(function(event){loadlink($(this), event)});
         $("#nav").append(link);
       } else {
         $("#nav").append('<span class="spacer"></span>');
@@ -39,14 +51,14 @@ jQuery(document).ready(function () {
   });*/
 
   // When link is clicked, load in iframe and change URL hash
-  jQuery('#nav a').click(function(event) {
+  /*jQuery('#nav a').click(function(event) {
     event.preventDefault();
     $("#loading").fadeIn("slow");
     window.location.hash = '#'+ $(this).attr('counter');
     parent.iframe.location.href = $(this).attr('to');
     jQuery('#nav a.active').removeClass('active');
     $(this).addClass('active');
-  });
+  });*/
 
   // Resolve relative links to absolute
   // Taken from http://stackoverflow.com/a/12965135
