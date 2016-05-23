@@ -52,11 +52,40 @@ function loadlink(link, event) {
 function loadfromhash() {
   if (window.location.hash) {
     var number = parseInt(window.location.hash.substring(1));
-	if (number) {
-	  var link = $("#nav a:nth-of-type("+number+")");
-	  link.trigger("click");
-	}
+    if (number) {
+      var link = $("#nav a:nth-of-type("+number+")");
+      link.trigger("click");
+    }
   }
+}
+
+// Parse JSON configuration
+function parseconf(conf) {
+  // Set navbar orientation
+  if (conf.horizontal) {
+    $("html").addClass("hn");
+  } else {
+    $("html").addClass("vn");
+  }
+  
+  // Load start page
+  parent.iframe.location.href = conf.startpage;
+  
+  // Load links
+  var a_counter = 1;
+  $.each(conf.links, function(key, item) {
+    if (item.url && item.icon) {
+      var link = $("<a>" + item.icon + "</a>")
+        .attr('counter', a_counter)
+        .attr('href', "#" + a_counter++)
+        .attr('to', item.url)
+        .attr('title', item.title)
+        .click(function(event){loadlink($(this), event)});
+      $("#nav").append(link);
+    } else {
+      $("#nav").append('<span class="spacer"></span>');
+    }
+  });
 }
 
 jQuery(document).ready(function () {
@@ -66,32 +95,7 @@ jQuery(document).ready(function () {
   
   // Load config.json
   $.getJSON('config.json', function(conf) {
-    // Set navbar orientation
-    if (conf.horizontal) {
-      $("html").addClass("hn");
-    } else {
-      $("html").addClass("vn");
-    }
-    
-    // Load start page
-    parent.iframe.location.href = conf.startpage;
-    
-    // Load links
-    var a_counter = 1;
-    $.each(conf.links, function(key, item) {
-      if (item.url && item.icon) {
-        var link = $("<a>" + item.icon + "</a>")
-          .attr('counter', a_counter)
-          .attr('href', "#" + a_counter++)
-          .attr('to', item.url)
-          .attr('title', item.title)
-          .click(function(event){loadlink($(this), event)});
-        $("#nav").append(link);
-      } else {
-        $("#nav").append('<span class="spacer"></span>');
-      }
-    });
-    
+    parseconf(conf);    
     loadfromhash();
   });
   
