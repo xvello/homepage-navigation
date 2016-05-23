@@ -64,12 +64,6 @@ function loadfromhash() {
 
 // Parse JSON configuration
 function parseconf(conf) {
-    // Set navbar orientation
-    if (conf.horizontal) {
-        $("html").addClass("hn");
-    } else {
-        $("html").addClass("vn");
-    }
     // Set navbar position
     if (conf.position) {
         $("html").addClass(conf.position);
