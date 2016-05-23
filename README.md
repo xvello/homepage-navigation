@@ -25,5 +25,7 @@ The configuration is stored in the config.json file. You can use config.json.sam
     * "icon" : icon string, from http://fontawesome.io/cheatsheet/
     * "title" (optional) : tooltip
 
+You can [check you config.json online](http://jsonlint.com) to debug errors
+
 ##Tips##
 - If you bookmark the page after loading a link, it will always load this link (using the HTML anchor in the URL).
