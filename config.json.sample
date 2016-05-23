@@ -1,5 +1,5 @@
 {
-  "horizontal": false,
+  "position": "left",
   "startpage": "https://duckduckgo.com",
   "links": [
     { "title": "E-mail", "icon": "&#xf003;", "url": "/mail" },

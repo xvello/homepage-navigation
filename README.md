@@ -16,7 +16,7 @@ Some javascript improves the experience (synchronising title and favicon, changi
 ##Configuration##
 The configuration is stored in the config.json file. You can use config.json.sample as a starting point.
 
-* "horizontal" : true for a horizontal navbar, false for a vertical one (default)
+* "position" : position of the navbar, can be "left" (default), "top", "right" or "bottom"
 * "startpage" : default URL to load (absolute or relative)
 * "links" : array of navbar elements :
   * empty objects will add a spacer

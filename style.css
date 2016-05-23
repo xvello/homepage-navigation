@@ -20,11 +20,17 @@ iframe {
   border: none;
   box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
 }
-html.vn iframe {
+html.left iframe {
   padding-left: 64px;
 }
-html.hn iframe {
+html.right iframe {
+  padding-right: 64px;
+}
+html.top iframe {
   padding-top: 64px;
+}
+html.bottom iframe {
+  padding-bottom: 64px;
 }
 
 #noconfig {
@@ -46,12 +52,20 @@ html.hn iframe {
   background: #eee;
   z-index: 1100;
 }
-html.vn #loading {
+html.left #loading {
   left: 64px;
   top: 0;
 }
-html.hn #loading {
+html.right #loading {
+  right: 64px;
+  top: 0;
+}
+html.top #loading {
   top: 64px;
+  left: 0;
+}
+html.bottom #loading {
+  bottom: 64px;
   left: 0;
 }
 
@@ -72,23 +86,39 @@ html.hn #loading {
 
 #nav {
   display: block;
-  left: 0;
-  top: 0;
   position: fixed;
   overflow: hidden;
   z-index: 1111;
   background: #f7f7f7;
   transition: all 300ms ease-in-out;
 }
-html.vn #nav {
+html.left #nav {
+  left: 0;
+  top: 0;
   width: 64px;
   height: 100%;
   border-right: 1px solid #ddd;
 }
-html.hn #nav {
+html.right #nav {
+  right: 0;
+  top: 0;
+  width: 64px;
+  height: 100%;
+  border-left: 1px solid #ddd;
+}
+html.top #nav {
+  left: 0;
+  top: 0;
   height: 64px;
   width: 100%;
   border-bottom: 1px solid #ddd;
+}
+html.bottom #nav {
+  left: 0;
+  bottom: 0;
+  height: 64px;
+  width: 100%;
+  border-top: 1px solid #ddd;
 }
 
 #nav a {
@@ -103,21 +133,21 @@ html.hn #nav {
   color: #999;
   transition: all 300ms ease-in-out;
 }
-html.vn #nav a {
+html.left #nav a, html.right #nav a {
   display: block;
   border-bottom: 1px solid #ddd;  
 }
-html.hn #nav a {
+html.top #nav a, html.bottom #nav a {
   float: left;
   border-right: 1px solid #ddd;
 }
 
-html.vn #nav span.spacer {
+html.left #nav span.spacer, html.right #nav span.spacer {
   height: 24px;
   width: 64px;
   display: block;
 }
-html.hn #nav span.spacer {
+html.top #nav span.spacer, html.bottom #nav span.spacer {
   height: 64px;
   width: 32px;
   float: left;
@@ -134,17 +164,17 @@ html.hn #nav span.spacer {
   color: #47a3da;
 }
 
-@media (max-width: 700px) {
-  html.vn iframe {
+@media (max-width: 800px) {
+  html.left iframe {
     padding-left: 32px;
   }
-  html.vn #nav {
+  html.left #nav {
     transform: translate(-50%, 0);  
   }
-  html.vn #nav:hover {
+  html.left #nav:hover {
     transform: translate(0, 0);  
   }
-  html.vn #loading {
+  html.left #loading {
     left: 32px;
   }
 }

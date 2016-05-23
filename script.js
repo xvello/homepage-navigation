@@ -70,6 +70,12 @@ function parseconf(conf) {
     } else {
         $("html").addClass("vn");
     }
+    // Set navbar position
+    if (conf.position) {
+        $("html").addClass(conf.position);
+    } else {
+        $("html").addClass("left");
+    }
 
     // Load start page
     if (conf.startpage) {
