@@ -104,10 +104,19 @@ jQuery(document).ready(function() {
         changeTitle();
     });
     
+    // Set a 1 second timeout if config.json hangs
+    var noconftimeout = setTimeout('$("#noconfig").fadeIn("slow");', 1000);
+
     // Load config.json
     $.getJSON('config.json', function(conf) {
-        parseconf(conf);
-        loadfromhash();
+        if (conf.links) {
+            clearTimeout(noconftimeout);
+            parseconf(conf);
+            loadfromhash();
+            $("#noconfig").fadeOut("slow");
+        } else {
+            $("#noconfig").fadeIn("slow");
+        }
     });
 
     // Sync title and favicon every 10 seconds

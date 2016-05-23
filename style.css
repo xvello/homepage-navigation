@@ -27,6 +27,18 @@ html.hn iframe {
   padding-top: 64px;
 }
 
+#noconfig {
+  display: none;
+  position: absolute;
+  top: 10%; left: 25%; right: 25%;
+  padding: 40px;
+  border: 2px solid red;
+  background: #fee;
+  z-index: 2200;
+  text-align: center;
+  font-family: sans-serif;
+}
+
 #loading {
   position: fixed;
   width: 100%;
